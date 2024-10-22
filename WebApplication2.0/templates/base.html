@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Deep Tracers{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-black text-white">
+    <header class="bg-black">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="{{ url_for('main.index') }}" class="text-xl font-bold flex items-center">
+                    <img src="{{ url_for('static', filename='img/logo.svg') }}" alt="Logo" class="h-8 w-8 mr-2" style="filter: invert(1);">
+                    <span class="text-2xl">Deep Tracers</span>
+                </a>
+            </div>
+            <div class="hidden md:flex space-x-4 items-center">
+                <a href="{{ url_for('main.index') }}" class="hover:text-gray-300">Home</a>
+                <a href="{{ url_for('main.solutions') }}" class="hover:text-gray-300">Solutions</a>
+                <a href="{{ url_for('main.use_cases') }}" class="hover:text-gray-300">Use Cases</a>
+                <a href="{{ url_for('main.resources') }}" class="hover:text-gray-300">Resources</a>
+                <a href="{{ url_for('main.technology') }}" class="hover:text-gray-300">Technology</a>
+                <a href="{{ url_for('main.demos') }}" class="hover:text-gray-300">Demos</a>
+                {% if current_user.is_authenticated %}
+                    <a href="{{ url_for('main.dashboard') }}" class="hover:text-gray-300">Dashboard</a>
+                {% else %}
+                    <a href="{{ url_for('auth.login') }}" class="btn-primary px-6 py-3 rounded-lg text-lg">Sign in</a>
+                {% endif %}
+            </div>
+            <button id="mobile-menu-toggle" class="md:hidden">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="md:hidden hidden bg-black">
+            <a href="{{ url_for('main.index') }}" class="block px-4 py-2 text-sm hover:bg-gray-900">Home</a>
+            <a href="{{ url_for('main.solutions') }}" class="block px-4 py-2 text-sm hover:bg-gray-900">Solutions</a>
+            <a href="{{ url_for('main.use_cases') }}" class="block px-4 py-2 text-sm hover:bg-gray-900">Use Cases</a>
+            <a href="{{ url_for('main.resources') }}" class="block px-4 py-2 text-sm hover:bg-gray-900">Resources</a>
+            <a href="{{ url_for('main.technology') }}" class="block px-4 py-2 text-sm hover:bg-gray-900">Technology</a>
+            <a href="{{ url_for('main.demos') }}" class="block px-4 py-2 text-sm hover:bg-gray-900">Demos</a>
+            {% if current_user.is_authenticated %}
+                <a href="{{ url_for('main.dashboard') }}" class="block px-4 py-2 text-sm hover:bg-gray-900">Dashboard</a>
+            {% else %}
+                <a href="{{ url_for('auth.login') }}" class="block px-4 py-2 text-sm hover:bg-gray-900">Sign in</a>
+            {% endif %}
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-8">
+        <div id="flash-messages" class="fixed top-4 right-0 z-50 transform translate-x-full transition-transform duration-300 ease-in-out">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="flash-message bg-{{ 'green' if category == 'success' else 'red' }}-500 text-white px-4 py-2 rounded mb-2 shadow-lg">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const flashMessages = document.getElementById('flash-messages');
+            if (flashMessages.children.length > 0) {
+                setTimeout(() => {
+                    flashMessages.classList.remove('translate-x-full');
+                }, 100);
+                
+                setTimeout(() => {
+                    flashMessages.classList.add('translate-x-full');
+                }, 5000);
+            }
+        });
+        </script>
+
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="bg-black text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-wrap justify-between">
+                {% block footer_content %}{% endblock %}
+            </div>
+            <div class="mt-8 text-center">
+                <p>&copy; 2024 Deep Tracers. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,23 @@
+Video File,Prediction (Deepfake or Real),Confidence Score
+D:\\DeepTracers\\Datathon-Datasets\\VIDEO\\FAKE\id0_id3_0001.mp4,Deepfake,0.926676214
+D:\\DeepTracers\\Datathon-Datasets\\VIDEO\\FAKE\id16_id1_0010.mp4,Deepfake,0.692088008
+D:\\DeepTracers\\Datathon-Datasets\\VIDEO\\FAKE\id16_id20_0005.mp4,Deepfake,0.5
+D:\\DeepTracers\\Datathon-Datasets\\VIDEO\\FAKE\id16_id26_0013.mp4,Deepfake,0.99
+D:\\DeepTracers\\Datathon-Datasets\\VIDEO\\FAKE\id20_id3_0008.mp4,Deepfake,0.630426645
+D:\\DeepTracers\\Datathon-Datasets\\VIDEO\\FAKE\id23_id4_0007.mp4,Deepfake,0.73435998
+D:\\DeepTracers\\Datathon-Datasets\\VIDEO\\FAKE\id25_id23_0010.mp4,Deepfake,0.985016286
+D:\\DeepTracers\\Datathon-Datasets\\VIDEO\\FAKE\id26_id1_0002.mp4,Deepfake,0.99
+D:\\DeepTracers\\Datathon-Datasets\\VIDEO\\FAKE\id28_id30_0002.mp4,Deepfake,0.934790194
+D:\\DeepTracers\\Datathon-Datasets\\VIDEO\\FAKE\id30_id16_0007.mp4,Deepfake,0.422199398
+D:\\DeepTracers\\Datathon-Datasets\\VIDEO\\FAKE\id30_id26_0002.mp4,Deepfake,0.985976219
+D:\\DeepTracers\\Datathon-Datasets\\VIDEO\\FAKE\id33_id37_0000.mp4,Deepfake,0.981978536
+D:\\DeepTracers\\Datathon-Datasets\\VIDEO\\FAKE\id3_id9_0007.mp4,Deepfake,0.547659874
+D:\\DeepTracers\\Datathon-Datasets\\VIDEO\\FAKE\id43_id45_0001.mp4,Deepfake,0.960165501
+D:\\DeepTracers\\Datathon-Datasets\\VIDEO\\FAKE\id45_id41_0004.mp4,Deepfake,0.720243037
+D:\\DeepTracers\\Datathon-Datasets\\VIDEO\\FAKE\id46_id48_0000.mp4,Deepfake,0.687199056
+D:\\DeepTracers\\Datathon-Datasets\\VIDEO\\FAKE\id47_id46_0004.mp4,Deepfake,0.988643587
+D:\\DeepTracers\\Datathon-Datasets\\VIDEO\\FAKE\id56_id49_0008.mp4,Deepfake,0.810953319
+D:\\DeepTracers\\Datathon-Datasets\\VIDEO\\FAKE\id56_id55_0005.mp4,Deepfake,0.99
+D:\\DeepTracers\\Datathon-Datasets\\VIDEO\\FAKE\id58_id57_0002.mp4,Deepfake,0.99
+D:\\DeepTracers\\Datathon-Datasets\\VIDEO\\FAKE\id6_id16_0002.mp4,Deepfake,0.92300272
+D:\\DeepTracers\\Datathon-Datasets\\VIDEO\\FAKE\id9_id6_0005.mp4,Deepfake,0.831346333

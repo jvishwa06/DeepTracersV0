@@ -1,0 +1,51 @@
+.dashboard-container {
+    padding: 30px;
+    background-color: #000;
+    color: white; 
+    text-align: center;
+}
+
+.neon-heading {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+    margin-bottom: 50px;
+}
+
+.chart-container {
+    margin: 40px 0;
+}
+
+.chart-heading {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #00ffff; 
+    text-shadow: 0 0 8px #00ffff;
+}
+
+.cta-button {
+    background-color: #00ffff;
+    color: black;
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 8px;
+}
+
+.cta-button:hover {
+    background-color: white;
+    color: black;
+    box-shadow: 0 0 20px #00ffff;
+}
+
+.cta-container {
+    margin: 40px 0;
+}
+
+.neon-glow {
+    text-shadow: 0 0 10px #fff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff;
+}
+

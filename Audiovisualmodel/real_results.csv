@@ -1,0 +1,18 @@
+Video File,Prediction (Deepfake or Real),Confidence Score
+D:\\DeepTracers\\Datathon-Datasets\\VIDEO\\REAL\id0_0000.mp4,Real,0.09316577017307281
+D:\\DeepTracers\\Datathon-Datasets\\VIDEO\\REAL\id0_0001.mp4,Real,0.23426246643066406
+D:\\DeepTracers\\Datathon-Datasets\\VIDEO\\REAL\id0_0002.mp4,Real,0.01
+D:\\DeepTracers\\Datathon-Datasets\\VIDEO\\REAL\id0_0003 (1).mp4,Real,0.01
+D:\\DeepTracers\\Datathon-Datasets\\VIDEO\\REAL\id0_0004.mp4,Real,0.020564598962664604
+D:\\DeepTracers\\Datathon-Datasets\\VIDEO\\REAL\id0_0005.mp4,Real,0.19707128405570984
+D:\\DeepTracers\\Datathon-Datasets\\VIDEO\\REAL\id0_0006.mp4,Real,0.0646311491727829
+D:\\DeepTracers\\Datathon-Datasets\\VIDEO\\REAL\id0_0007.mp4,Real,0.01
+D:\\DeepTracers\\Datathon-Datasets\\VIDEO\\REAL\id0_0008.mp4,Real,0.1470274180173874
+D:\\DeepTracers\\Datathon-Datasets\\VIDEO\\REAL\id0_0009.mp4,Real,0.01068410836160183
+D:\\DeepTracers\\Datathon-Datasets\\VIDEO\\REAL\id10_0000.mp4,Real,0.012905040755867958
+D:\\DeepTracers\\Datathon-Datasets\\VIDEO\\REAL\id10_0001.mp4,Deepfake,0.5
+D:\\DeepTracers\\Datathon-Datasets\\VIDEO\\REAL\id10_0003.mp4,Real,0.01
+D:\\DeepTracers\\Datathon-Datasets\\VIDEO\\REAL\id10_0004.mp4,Deepfake,0.3896794617176056
+D:\\DeepTracers\\Datathon-Datasets\\VIDEO\\REAL\id10_0005.mp4,Real,0.05780411511659622
+D:\\DeepTracers\\Datathon-Datasets\\VIDEO\\REAL\id10_0006.mp4,Deepfake,0.5
+D:\\DeepTracers\\Datathon-Datasets\\VIDEO\\REAL\id1_0008.mp4,Real,0.01

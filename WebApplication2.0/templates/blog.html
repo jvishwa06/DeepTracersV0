@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Deep Tracers - Blog{% endblock %}
+
+{% block content %}
+<h1 class="text-3xl font-bold mb-8">Our Blog</h1>
+
+{% if current_user.is_authenticated %}
+<div class="mb-8">
+    <a href="{{ url_for('main.create_blog_post') }}" class="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600 transition duration-300">Create New Post</a>
+</div>
+{% endif %}
+
+<div class="mb-8">
+    <form action="{{ url_for('main.search_blog') }}" method="GET" class="flex">
+        <input type="text" name="q" placeholder="Search blog posts..." value="{{ search_query if search_query }}" class="flex-grow px-4 py-2 border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-r-lg hover:bg-blue-600 transition duration-300">Search</button>
+    </form>
+</div>
+
+<div class="grid md:grid-cols-2 gap-8">
+    {% for post in blog_posts.items %}
+    <div class="bg-black p-6 rounded-lg shadow-md">
+        <h2 class="text-2xl font-semibold mb-2">{{ post.title }}</h2>
+        <p class="text-gray-600 mb-4">Published on: {{ post.created_at.strftime('%Y-%m-%d %H:%M') }} by {{ post.author.username }}</p>
+        <p class="mb-4">{{ post.content[:200] }}{% if post.content|length > 200 %}...{% endif %}</p>
+        <a href="{{ url_for('main.blog_post', post_id=post.id) }}" class="text-blue-600 hover:underline">Read more</a>
+    </div>
+    {% else %}
+    <p>No blog posts available at the moment.</p>
+    {% endfor %}
+</div>
+
+<div class="mt-8 flex justify-center">
+    {% if blog_posts.has_prev %}
+    <a href="{{ url_for('main.blog', page=blog_posts.prev_num) }}" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-300 mr-2">&laquo; Previous</a>
+    {% endif %}
+    {% if blog_posts.has_next %}
+    <a href="{{ url_for('main.blog', page=blog_posts.next_num) }}" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-300">Next &raquo;</a>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Deep Tracers - Login{% endblock %}
+
+{% block content %}
+<div class="max-w-md mx-auto bg-white p-8 rounded-lg shadow-md">
+    <h2 class="text-2xl font-semibold mb-6">Login</h2>
+    <form method="POST" action="{{ url_for('auth.login') }}" id="login-form">
+        <div class="mb-4">
+            <label for="email" class="block text-gray-700 font-bold mb-2">Email</label>
+            <input type="email" id="email" name="email" required class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500">
+        </div>
+        <div class="mb-6">
+            <label for="password" class="block text-gray-700 font-bold mb-2">Password</label>
+            <input type="password" id="password" name="password" required class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500">
+        </div>
+        <div class="mb-6">
+            <label class="flex items-center">
+                <input type="checkbox" name="remember" id="remember" class="mr-2">
+                <span class="text-sm">Remember me</span>
+            </label>
+        </div>
+        <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-300">Login</button>
+    </form>
+    <p class="mt-4 text-center">Don't have an account? <a href="{{ url_for('auth.register') }}" class="text-blue-500 hover:underline">Register here</a></p>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('login-form');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+
+    form.addEventListener('submit', function(event) {
+        let isValid = true;
+
+        if (!isValidEmail(emailInput.value)) {
+            alert('Please enter a valid email address.');
+            isValid = false;
+        }
+
+        if (passwordInput.value.length < 1) {
+            alert('Please enter your password.');
+            isValid = false;
+        }
+
+        if (!isValid) {
+            event.preventDefault();
+        }
+    });
+
+    function isValidEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    }
+});
+</script>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Deep Tracers - User Profile{% endblock %}
+
+{% block content %}
+<h1 class="text-3xl font-bold mb-8">User Profile</h1>
+
+<div class="bg-white p-6 rounded-lg shadow-md mb-8">
+    <h2 class="text-2xl font-semibold mb-4">Your Information</h2>
+    <form action="{{ url_for('main.update_profile') }}" method="POST">
+        <div class="mb-4">
+            <label for="username" class="block text-gray-700 font-bold mb-2">Username</label>
+            <input type="text" id="username" name="username" value="{{ user.username }}" required class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500">
+        </div>
+        <div class="mb-4">
+            <label for="email" class="block text-gray-700 font-bold mb-2">Email</label>
+            <input type="email" id="email" name="email" value="{{ user.email }}" required class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500">
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 font-bold mb-2">Member since</label>
+            <p>{{ user.created_at.strftime('%Y-%m-%d') }}</p>
+        </div>
+        <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-300">Update Profile</button>
+    </form>
+</div>
+
+<div class="bg-white p-6 rounded-lg shadow-md mb-8">
+    <h2 class="text-2xl font-semibold mb-4">Change Password</h2>
+    <button id="toggle-password-form" class="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600 transition duration-300 mb-4">Change Password</button>
+    <form id="password-form" action="{{ url_for('auth.change_password') }}" method="POST" class="hidden">
+        <div class="mb-4">
+            <label for="current_password" class="block text-gray-700 font-bold mb-2">Current Password</label>
+            <input type="password" id="current_password" name="current_password" required class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500">
+        </div>
+        <div class="mb-4">
+            <label for="new_password" class="block text-gray-700 font-bold mb-2">New Password</label>
+            <input type="password" id="new_password" name="new_password" required class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500">
+        </div>
+        <div class="mb-4">
+            <label for="confirm_password" class="block text-gray-700 font-bold mb-2">Confirm New Password</label>
+            <input type="password" id="confirm_password" name="confirm_password" required class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500">
+        </div>
+        <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-300">Change Password</button>
+    </form>
+</div>
+
+<div class="text-center">
+    <a href="{{ url_for('auth.logout') }}" class="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 transition duration-300">Logout</a>
+</div>
+
+<script>
+document.getElementById('toggle-password-form').addEventListener('click', function() {
+    var form = document.getElementById('password-form');
+    form.classList.toggle('hidden');
+    this.textContent = form.classList.contains('hidden') ? 'Change Password' : 'Hide Password Form';
+});
+</script>
+{% endblock %}

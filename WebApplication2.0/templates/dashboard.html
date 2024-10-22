@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <nav style="background-color: black; padding: 10px;">
+        <ul style="list-style-type: none; margin: 0; padding: 0; overflow: hidden;">
+            <li style="float: left;"><a href="/" style="display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none;">Home</a></li>
+            <li style="float: left;"><a href="/dashboard" style="display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none;">Dashboard</a></li>
+            <li style="float: left;"><a href="/settings" style="display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none;">Settings</a></li>
+            <li style="float: left;"><a href="/logout" style="display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none;">Logout</a></li>
+        </ul>
+    </nav>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff; /* White background */
+            color: black;
+        }
+        .dashboard-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #000;
+        }
+        .chart-container {
+            width: 48%;
+            margin: 1%;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .charts-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        canvas {
+            background-color: white;
+            border-radius: 8px;
+        }
+        .chart-description {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #333;
+        }
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .chart-container {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="dashboard-container">
+        <h2>DeepTracers Deepfake Detection Dashboard</h2>
+
+        <button id="downloadPdfBtn" style="position: absolute; top: 20px; right: 20px; background-color: red; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+            Download PDF
+        </button>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+        <script>
+            document.getElementById('downloadPdfBtn').addEventListener('click', function() {
+                const { jsPDF } = window.jspdf;
+                html2canvas(document.body).then(function(canvas) {
+                    const imgData = canvas.toDataURL('image/png');
+                    const doc = new jsPDF('p', 'mm', 'a4');
+                    const imgWidth = 210;
+                    const pageHeight = 295;
+                    const imgHeight = canvas.height * imgWidth / canvas.width;
+                    let heightLeft = imgHeight;
+                    let position = 0;
+
+                    doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                    heightLeft -= pageHeight;
+
+                    while (heightLeft >= 0) {
+                        position = heightLeft - imgHeight;
+                        doc.addPage();
+                        doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                        heightLeft -= pageHeight;
+                    }
+                    doc.save('dashboard.pdf');
+                });
+            });
+        </script>
+        </script>
+
+        <div class="charts-row">
+            <div class="chart-container">
+                <canvas id="accuracyChart"></canvas>
+                <p class="chart-description">
+                    <strong>Accuracy Over Time:</strong> This line chart tracks the accuracy of deepfake detection over time, showing improvements in model performance.
+                </p>
+            </div>
+
+            <div class="chart-container">
+                <canvas id="confidenceChart"></canvas>
+                <p class="chart-description">
+                    <strong>Confidence Levels:</strong> This bar chart represents the distribution of confidence levels for detected deepfakes, helping to assess the model's reliability.
+                </p>
+            </div>
+        </div>
+
+        <div class="charts-row">
+            <div class="chart-container">
+                <canvas id="realVsFakeChart"></canvas>
+                <p class="chart-description">
+                    <strong>Real vs Deepfake Content:</strong> This pie chart shows the proportion of real vs. deepfake content detected on the platform.
+                </p>
+            </div>
+
+            <div class="chart-container">
+                <canvas id="socialMediaChart"></canvas>
+                <p class="chart-description">
+                    <strong>Deepfakes Detected by Platform:</strong> This bar chart highlights the social media platforms where the most deepfakes are detected.
+                </p>
+            </div>
+        </div>
+
+        <div class="charts-row">
+            <div class="chart-container">
+                <canvas id="deepfakeTypesChart"></canvas>
+                <p class="chart-description">
+                    <strong>Types of Deepfakes Detected:</strong> The stacked bar chart shows the most common deepfake categories, such as face swaps and audio manipulation.
+                </p>
+            </div>
+
+=            <div class="chart-container">
+                <canvas id="processingTimeChart"></canvas>
+                <p class="chart-description">
+                    <strong>Processing Time for Deepfake Detection:</strong> This chart shows how quickly deepfake detection is processed over time.
+                </p>
+            </div>
+        </div>
+
+        <div class="charts-row">
+            <div class="chart-container">
+                <canvas id="geomChart"></canvas>
+                <p class="chart-description">
+                    <strong>Deepfake Activity Over Time:</strong> The geom chart shows changes in deepfake activity with both upward and downward trends over a period of time.
+                </p>
+            </div>
+
+            <div class="chart-container">
+                <canvas id="comboChart"></canvas>
+                <p class="chart-description">
+                    <strong>Comparison of Real vs. Fake Over Time:</strong> This combo chart combines a line and bar chart to compare real and deepfake content detections over time.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const accuracyCtx = document.getElementById('accuracyChart').getContext('2d');
+        const accuracyChart = new Chart(accuracyCtx, {
+            type: 'line',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May'],
+                datasets: [{
+                    label: 'Accuracy (%)',
+                    data: [70, 72, 65, 78, 85], 
+                    borderColor: 'rgb(0, 123, 255)',
+                    backgroundColor: 'rgba(0, 123, 255, 0.1)',
+                    fill: true,
+                    tension: 0.4,
+                }]
+            }
+        });
+
+        const confidenceCtx = document.getElementById('confidenceChart').getContext('2d');
+        const confidenceChart = new Chart(confidenceCtx, {
+            type: 'bar',
+            data: {
+                labels: ['0-20%', '20-40%', '40-60%', '60-80%', '80-100%'],
+                datasets: [{
+                    label: 'Confidence (%)',
+                    data: [5, 15, 30, 25, 25],
+                    backgroundColor: 'rgba(255, 206, 86, 0.8)',
+                }]
+            }
+        });
+
+        const realVsFakeCtx = document.getElementById('realVsFakeChart').getContext('2d');
+        const realVsFakeChart = new Chart(realVsFakeCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Real', 'Deepfake'],
+                datasets: [{
+                    data: [60, 40], 
+                    backgroundColor: ['#36A2EB', '#FF6384'],
+                    hoverOffset: 4
+                }]
+            }
+        });
+
+        const socialMediaCtx = document.getElementById('socialMediaChart').getContext('2d');
+        const socialMediaChart = new Chart(socialMediaCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Facebook', 'Instagram', 'Reddit', 'Twitter'],
+                datasets: [{
+                    label: 'Deepfakes Detected',
+                    data: [300, 180, 220, 140], 
+                    backgroundColor: 'rgba(54, 162, 235, 0.8)'
+                }]
+            }
+        });
+
+        const deepfakeTypesCtx = document.getElementById('deepfakeTypesChart').getContext('2d');
+        const deepfakeTypesChart = new Chart(deepfakeTypesCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Face Swap', 'Audio Manipulation', 'Text-Based'],
+                datasets: [{
+                    label: 'Face Swap',
+                    data: [150, 100, 200],
+                    backgroundColor: 'rgba(75, 192, 192, 0.8)'
+                }, {
+                    label: 'Audio Manipulation',
+                    data: [50, 75, 100],
+                    backgroundColor: 'rgba(255, 99, 132, 0.8)'
+                }]
+            },
+            options: {
+                scales: {
+                    x: { stacked: true },
+                    y: { stacked: true }
+                }
+            }
+        });
+
+        const processingTimeCtx = document.getElementById('processingTimeChart').getContext('2d');
+        const processingTimeChart = new Chart(processingTimeCtx, {
+            type: 'line',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May'],
+                datasets: [{
+                    label: 'Processing Time (seconds)',
+                    data: [30, 40, 25, 35, 20], 
+                    borderColor: 'rgba(255, 205, 86, 1)',
+                    fill: true
+                }]
+            }
+        });
+
+        
+        const geomCtx = document.getElementById('geomChart').getContext('2d');
+        const geomChart = new Chart(geomCtx, {
+            type: 'line',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May'],
+                datasets: [{
+                    label: 'Deepfake Activity',
+                    data: [100, 120, 90, 110, 130],
+                    borderColor: 'rgba(153, 102, 255, 1)',
+                    fill: true,
+                    backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                    tension: 0.4
+                }]
+            }
+        });
+
+        const comboCtx = document.getElementById('comboChart').getContext('2d');
+        const comboChart = new Chart(comboCtx, {
+            type: 'bar',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May'],
+                datasets: [{
+                    type: 'bar',
+                    label: 'Deepfake',
+                    data: [50, 75, 100, 150, 200],
+                    backgroundColor: 'rgba(255, 99, 132, 0.8)'
+                }, {
+                    type: 'line',
+                    label: 'Real',
+                    data: [200, 180, 160, 170, 190],
+                    borderColor: '#36A2EB',
+                    fill: false,
+                    tension: 0.4
+                }]
+            }
+        });
+    </script>
+</body>
+</html>
+<footer style="background-color: #black; color: white; text-align: center; padding: 10px; position: fixed; bottom: 0; width: 100%;">
+<footer style="background-color: black; color: white; text-align: center; padding: 10px; position: fixed; bottom: 0; width: 100%;">
+</footer>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const footer = document.querySelector('footer');
+        footer.style.display = 'none';
+
+        window.addEventListener('scroll', function() {
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                footer.style.display = 'block';
+            } else {
+                footer.style.display = 'none';
+            }
+        });
+    });
+{# 
+    @2024 DeepTracers All rights reserved.
+#}<!-- Chatbot Button -->
+<div id="chatbotButton">
+    <img src="path/to/chatbot-logo.png" alt="Chatbot" id="chatbotLogo">
+</div>
+
+<style>
+    #chatbotButton {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 60px;
+        height: 60px;
+        cursor: pointer;
+        z-index: 1000; 
+    }
+
+    #chatbotLogo {
+        width: 100%;
+        height: 100%;
+    }
+</style>
+
+<script>
+    document.getElementById('chatbotButton').addEventListener('click', function() {
+        alert('Chatbot button clicked!');
+    });
+</script><script>
+    document.getElementById('chatbotButton').addEventListener('click', function() {
+        alert('Chatbot button clicked!');
+    });
+</script><style>
+    #chatbotButton {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 60px;
+        height: 60px;
+        cursor: pointer;
+        z-index: 1000; 
+    }
+
+    #chatbotLogo {
+        width: 100%;
+        height: 100%;
+    }
+</style><body>
+    <!-- Your existing content -->
+
+    <!-- Chatbot Button -->
+    <div id="chatbotButton">
+        <img src="path/to/chatbot-logo.png" alt="Chatbot" id="chatbotLogo">
+    </div>
+
+    <!-- Your existing scripts -->
+</body><body>
+    <!-- Your existing content -->
+
+    {% include 'footer.html' %}
+
+    <!-- Your existing scripts -->
+</body>
+</script>

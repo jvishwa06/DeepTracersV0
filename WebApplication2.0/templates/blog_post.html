@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post.title }} - Deep Tracers Blog{% endblock %}
+
+{% block content %}
+<div class="bg-black p-6 rounded-lg shadow-md">
+    <h1 class="text-3xl font-bold mb-4">{{ post.title }}</h1>
+    <p class="text-gray-600 mb-8">Published on: {{ post.created_at.strftime('%Y-%m-%d %H:%M') }} by {{ post.author.username }}</p>
+    <div class="prose max-w-none">
+        {{ post.content | safe }}
+    </div>
+</div>
+<div class="mt-8">
+    <a href="{{ url_for('main.blog') }}" class="text-blue-600 hover:underline">&larr; Back to Blog</a>
+</div>
+{% endblock %}

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="static/css/developer.css">
+  <script src="static/js/navbar.js"></script>
+  <title>Developer Documentation</title>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <a href="/" class="navbar-brand">Deep Tracers</a>
+      <ul class="navbar-nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/solutions">Solutions</a></li>
+        <li><a href="/resources">Resources</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+    <div class="container">
+        <header>
+            <h1>Developer Documentation</h1>
+            <p>Get started with our API to integrate deepfake detection, media verification, and threat intelligence into your applications.</p>
+        </header>
+
+        <section class="documentation-section">
+            <h2>Getting Started</h2>
+            <h3>Step 1: Create an API Key</h3>
+            <p>
+                Sign in to your Deep Tracers account and generate an API key from the dashboard.
+                Treat this key like a password and do not expose it publicly.
+            </p>
+            <pre><code>
+api_key: sk-12345abcde67890ghijklmnopqrstuv
+            </code></pre>
+
+            <h3>Step 2: Making Your First API Request</h3>
+            <p>
+                Here's how you can make a request using Python:
+            </p>
+            <pre><code>
+import requests
+
+api_endpoint = "https://api.deeptracers.com/v1/detect"
+api_key = "sk-12345abcde67890ghijklmnopqrstuv"
+
+headers = {
+    "Authorization": f"Bearer {api_key}",
+    "Content-Type": "application/json"
+}
+
+data = {
+    "media_url": "https://example.com/media/sample-video.mp4"
+}
+
+response = requests.post(api_endpoint, headers=headers, json=data)
+print(response.json())
+            </code></pre>
+
+            <h3>Step 3: Understanding the Response</h3>
+            <p>After making the request, you will receive a JSON response. Here's an example:</p>
+            <pre><code>
+{
+    "status": "success",
+    "data": {
+        "media_id": "1234567890abcdef",
+        "is_deepfake": true,
+        "confidence_score": 0.95,
+        "analysis_details": {
+            "frame_by_frame": true,
+            "detected_issues": [
+                "face_swap",
+                "audio_manipulation"
+            ]
+        }
+    }
+}
+            </code></pre>
+
+            <h3>Step 4: Adding to Your Application</h3>
+            <p>Here’s an example of integrating it into a Flask web app:</p>
+            <pre><code>
+from flask import Flask, request, jsonify
+import requests
+
+app = Flask(__name__)
+
+API_KEY = "sk-12345abcde67890ghijklmnopqrstuv"
+API_URL = "https://api.deeptracers.com/v1/detect"
+
+@app.route('/analyze', methods=['POST'])
+def analyze_media():
+    media_url = request.json.get('media_url')
+    headers = {
+        "Authorization": f"Bearer {API_KEY}",
+        "Content-Type": "application/json"
+    }
+    data = {"media_url": media_url}
+    response = requests.post(API_URL, headers=headers, json=data)
+    return jsonify(response.json())
+
+if __name__ == '__main__':
+    app.run(debug=True)
+            </code></pre>
+        </section>
+
+        <section class="faq-section">
+            <h2>FAQ</h2>
+            <h3>How do I increase my rate limits?</h3>
+            <p>Upgrade to a higher-tier plan to increase your request limits.</p>
+
+            <h3>Can I cancel my subscription?</h3>
+            <p>Yes, you can cancel at any time through the account dashboard.</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Deep Tracers. All rights reserved.</p>
+    </footer>
+</body>
+</html>

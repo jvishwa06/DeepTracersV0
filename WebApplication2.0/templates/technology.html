@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}Deep Tracers - Technology{% endblock %}
+
+{% block content %}
+<h1 class="text-3xl font-bold mb-8">Our Technology</h1>
+
+<div class="grid md:grid-cols-2 gap-8">
+    <div class="bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-2xl font-semibold mb-4">AI and Machine Learning</h2>
+        <p class="mb-4">Our platform leverages cutting-edge AI and machine learning algorithms to provide advanced threat detection capabilities.</p>
+        <ul class="list-disc list-inside">
+            <li>Deep learning neural networks</li>
+            <li>Natural language processing</li>
+            <li>Computer vision algorithms</li>
+        </ul>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-2xl font-semibold mb-4">Big Data Analytics</h2>
+        <p class="mb-4">Process and analyze vast amounts of data in real-time to identify patterns and potential threats.</p>
+        <ul class="list-disc list-inside">
+            <li>Distributed computing</li>
+            <li>Stream processing</li>
+            <li>Advanced data visualization</li>
+        </ul>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-2xl font-semibold mb-4">Continuous Learning</h2>
+        <p class="mb-4">Our AI models continuously improve and adapt to new threats through ongoing training and feedback loops.</p>
+        <ul class="list-disc list-inside">
+            <li>Automated model retraining</li>
+            <li>Active learning techniques</li>
+            <li>Human-in-the-loop validation</li>
+        </ul>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-2xl font-semibold mb-4">Scalable Infrastructure</h2>
+        <p class="mb-4">Our cloud-native architecture ensures high availability and scalability to meet the demands of organizations of all sizes.</p>
+        <ul class="list-disc list-inside">
+            <li>Containerized microservices</li>
+            <li>Auto-scaling capabilities</li>
+            <li>Multi-region deployment</li>
+        </ul>
+    </div>
+</div>
+
+<div class="mt-12">
+    <h2 class="text-2xl font-semibold mb-4">How It Works</h2>
+    <div class="bg-white p-6 rounded-lg shadow-md">
+        <ol class="list-decimal list-inside space-y-4">
+            <li>Data Ingestion: Collect and process data from various sources</li>
+            <li>AI Analysis: Apply machine learning models to detect anomalies and potential threats</li>
+            <li>Threat Scoring: Assign risk scores to identified threats based on severity and likelihood</li>
+            <li>Alert Generation: Create actionable alerts for security teams</li>
+            <li>Continuous Learning: Update models based on new data and feedback</li>
+        </ol>
+    </div>
+</div>
+{% endblock %}

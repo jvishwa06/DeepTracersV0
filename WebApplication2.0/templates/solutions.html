@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block title %}Deep Tracers - Solutions{% endblock %}
+
+{% block content %}
+<h1 class="text-3xl font-bold mb-8">Our Solutions</h1>
+<section class="solution-section">
+    <div class="solution-box">
+        <div class="text-content">
+            <h2>KYC Security</h2>
+            <p>
+                As deepfake technology evolves, it poses a serious risk to identity verification systems.
+                Our cutting-edge deepfake detection for KYC systems detects and prevents injection attacks,
+                ensuring the integrity and security of your onboarding process.
+            </p>
+            <div class="buttons">
+                <a href="#" class="btn-primary">Get started</a>
+                <a href="#" class="btn-secondary">Contact Us</a>
+            </div>
+        </div>
+        <div class="image-content">
+            <img src="{{ url_for('static', filename='img/KYC.png') }}" alt="KYC Security Image">
+        </div>
+    </div>
+
+    <div class="solution-box">
+        <div class="text-content">
+            <h2>Media Verification</h2>
+            <p>
+                Experience a frictionless and user-friendly interface designed for everyone. Simply drag and drop your
+                files and get a deepfake media verification within seconds. Our advanced system uses a multilayer
+                approach, examining pixels, file structures, and voice patterns to deliver the most comprehensive
+                assessment effortlessly.
+            </p>
+            <div class="buttons">
+                <a href="#" class="btn-primary">Get started</a>
+                <a href="#" class="btn-secondary">Talk to an expert</a>
+            </div>
+        </div>
+        <div class="image-content">
+            <img src="{{ url_for('static', filename='img/MediaV.png') }}" alt="Media Verification Image">
+        </div>
+    </div>
+
+    <div class="solution-box">
+        <div class="text-content">
+            <h2>Tracers Intelligence</h2>
+            <p>
+                Keep the internet safe by continuously monitoring and intercepting threats before they escalate.
+                Leveraging our advanced deepfake threat intelligence system, we can identify and label malicious
+                activities in real-time, ensuring a secure and trustworthy online environment.
+            </p>
+            <div class="buttons">
+                <a href="#" class="btn-primary">Get started</a>
+                <a href="#" class="btn-secondary">Talk to an expert</a>
+            </div>
+        </div>
+        <div class="image-content">
+            <img src="{{ url_for('static', filename='img/tracersintell.png') }}" alt="Threat Intelligence Image">
+        </div>
+    </div>
+</section>
+
+{% comment %} <div class="video1-container">
+    <video autoplay muted loop>
+        <source src="{{ url_for('static', filename='img/Solution-Media-Verification-Video.webm') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div> {% endcomment %}
+
+{% endblock %}
+
+{% block footer_content %}
+    <div>
+        <h3 class="text-xl font-semibold mb-4">Solutions</h3>
+        <ul class="space-y-2">
+            <li><a href="#kyc-security" class="hover:text-gray-300">KYC Security</a></li>
+            <li><a href="#media-verification" class="hover:text-gray-300">Media Verification</a></li>
+            <li><a href="#threat-intelligence" class="hover:text-gray-300">Threat Intelligence</a></li>
+        </ul>
+    </div>
+    <div>
+        <h3 class="text-xl font-semibold mb-4">Use Cases</h3>
+        <ul class="space-y-2">
+            <li><a href="{{ url_for('main.use_cases') }}#defence" class="hover:text-gray-300">Defence</a></li>
+            <li><a href="{{ url_for('main.use_cases') }}#law-enforcement" class="hover:text-gray-300">Law Enforcement</a></li>
+            <li><a href="{{ url_for('main.use_cases') }}#kyc" class="hover:text-gray-300">KYC</a></li>
+            <li><a href="{{ url_for('main.use_cases') }}#cybersecurity" class="hover:text-gray-300">Cybersecurity</a></li>
+        </ul>
+    </div>
+    <div>
+        <h3 class="text-xl font-semibold mb-4">Resources</h3>
+        <ul class="space-y-2">
+            <li><a href="{{ url_for('main.resources') }}#blog" class="hover:text-gray-300">Blog</a></li>
+            <li><a href="{{ url_for('main.resources') }}#reports" class="hover:text-gray-300">Reports</a></li>
+            <li><a href="{{ url_for('main.resources') }}#video" class="hover:text-gray-300">Video</a></li>
+            <li><a href="{{ url_for('main.resources') }}#news" class="hover:text-gray-300">News & Press</a></li>
+        </ul>
+    </div>
+    <div>
+        <h3 class="text-xl font-semibold mb-4">Company</h3>
+        <ul class="space-y-2">
+            <li><a href="{{ url_for('main.technology') }}" class="hover:text-gray-300">Technology</a></li>
+            <li><a href="#" class="hover:text-gray-300">Careers</a></li>
+            <li><a href="{{ url_for('main.contact') }}" class="hover:text-gray-300">Contact</a></li>
+        </ul>
+    </div>
+{% endblock %}

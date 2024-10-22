@@ -1,0 +1,15 @@
+InstagramPrototype/node_modules/
+WebApplication/node_modules/
+MobileApplication/node_modules/
+StreamlitApplication/reports/
+StreamlitApplication/temp/
+StreamlitApplication/uploads/
+deeptracers-venv/
+SampleDatasets/
+Audiovisualmodel/weights/
+Backend/media/
+Backend/uploads/
+Backend/predictions.db
+Backend/resnetinceptionvit.pth
+demonstration.mp4
+PythonPackage/

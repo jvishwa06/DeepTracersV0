@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block title %}Deep Tracers - Register{% endblock %}
+
+{% block content %}
+<div class="max-w-md mx-auto bg-white p-8 rounded-lg shadow-md">
+    <h2 class="text-2xl font-semibold mb-6">Register</h2>
+    <form method="POST" action="{{ url_for('auth.register') }}" id="register-form">
+        <div class="mb-4">
+            <label for="username" class="block text-gray-700 font-bold mb-2">Username</label>
+            <input type="text" id="username" name="username" required class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500">
+        </div>
+        <div class="mb-4">
+            <label for="email" class="block text-gray-700 font-bold mb-2">Email</label>
+            <input type="email" id="email" name="email" required class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500">
+        </div>
+        <div class="mb-6">
+            <label for="password" class="block text-gray-700 font-bold mb-2">Password</label>
+            <input type="password" id="password" name="password" required class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500">
+            <div id="password-strength" class="mt-2"></div>
+        </div>
+        <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-300">Register</button>
+    </form>
+    <p class="mt-4 text-center">Already have an account? <a href="{{ url_for('auth.login') }}" class="text-blue-500 hover:underline">Login here</a></p>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('register-form');
+    const usernameInput = document.getElementById('username');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const passwordStrength = document.getElementById('password-strength');
+
+    form.addEventListener('submit', function(event) {
+        let isValid = true;
+
+        if (usernameInput.value.length < 3) {
+            alert('Username must be at least 3 characters long.');
+            isValid = false;
+        }
+
+        if (!isValidEmail(emailInput.value)) {
+            alert('Please enter a valid email address.');
+            isValid = false;
+        }
+
+        if (passwordInput.value.length < 8) {
+            alert('Password must be at least 8 characters long.');
+            isValid = false;
+        }
+
+        if (!isValid) {
+            event.preventDefault();
+        }
+    });
+
+    passwordInput.addEventListener('input', function() {
+        const strength = calculatePasswordStrength(passwordInput.value);
+        passwordStrength.textContent = `Password strength: ${strength}`;
+        passwordStrength.className = `mt-2 text-${getStrengthColor(strength)}`;
+    });
+
+    function isValidEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    }
+
+    function calculatePasswordStrength(password) {
+        if (password.length < 8) return 'Weak';
+        if (password.length < 12) return 'Medium';
+        return 'Strong';
+    }
+
+    function getStrengthColor(strength) {
+        switch (strength) {
+            case 'Weak': return 'red-500';
+            case 'Medium': return 'yellow-500';
+            case 'Strong': return 'green-500';
+        }
+    }
+});
+</script>
+{% endblock %}

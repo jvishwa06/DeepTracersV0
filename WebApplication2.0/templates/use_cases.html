@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+
+{% block title %}Deep Tracers - Use Cases{% endblock %}
+
+{% block content %}
+<h1 class="text-3xl font-bold mb-8">Use Cases</h1>
+
+<section class="use-case-hero">
+    <div class="container">
+        <div class="use-case-box">
+            <div class="text-content">
+                <h1>Defence</h1>
+                <p>As the battle for truth becomes as critical as the battle on the ground in modern warfare, our state-of-the-art deepfake detection for defense agencies and companies can help to prevent and mitigate this threat.</p>
+                <div class="buttons">
+                    <a href="#" class="btn-primary">Get started</a>
+                    <a href="#" class="btn-secondary">Talk to an expert</a>
+                </div>
+            </div>
+            <div class="image-content">
+                <img src="{{ url_for('static', filename='img/defense.png') }}" alt="Defence Deepfake Detection">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="use-case-hero">
+    <div class="container">
+        <div class="use-case-box">
+            <div class="text-content">
+                <h1>Digital Forensics</h1>
+                <p>Our cutting-edge Deepfake Detection Solution is designed specifically for digital forensics companies seeking to empower their detection capabilities with the latest in deep learning technologies.</p>
+                <div class="buttons">
+                    <a href="#" class="btn-primary">Get started</a>
+                    <a href="#" class="btn-secondary">Talk to an expert</a>
+                </div>
+            </div>
+            <div class="image-content">
+                <img src="{{ url_for('static', filename='img/Digital-Forensic.png') }}" alt="Defence Deepfake Detection">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="use-case-hero">
+    <div class="container">
+        <div class="use-case-box">
+            <div class="text-content">
+                <h1>KYC Security</h1>
+                <p>Face matching and liveness detection models are vulnerable to advanced deepfake injection attacks, as they primarily focus on verifying physical presence but struggle with sophisticated manipulations that mimic live interactions convincingly.</p>
+                <div class="buttons">
+                    <a href="#" class="btn-primary">Get started</a>
+                    <a href="#" class="btn-secondary">Talk to an expert</a>
+                </div>
+            </div>
+            <div class="image-content">
+                <img src="{{ url_for('static', filename='img/KYC -use_case.png') }}" alt="Defence Deepfake Detection">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<div class="grid md:grid-cols-2 gap-8">
+    <div id="defence" class="bg-black p-6 rounded-lg shadow-md">
+        <h2 class="text-2xl font-semibold mb-4">Defence</h2>
+        <p class="mb-4">Enhance national security with advanced AI-powered threat detection and analysis.</p>
+        <ul class="list-disc list-inside">
+            <li>Cyber warfare prevention</li>
+            <li>Intelligence gathering</li>
+            <li>Critical infrastructure protection</li>
+        </ul>
+    </div>
+    <div id="law-enforcement" class="bg-black p-6 rounded-lg shadow-md">
+        <h2 class="text-2xl font-semibold mb-4">Law Enforcement</h2>
+        <p class="mb-4">Empower law enforcement agencies with advanced AI tools for digital investigations and threat assessment.</p>
+        <ul class="list-disc list-inside">
+            <li>Digital evidence analysis</li>
+            <li>Suspect identification</li>
+            <li>Predictive policing</li>
+        </ul>
+    </div>
+    <div id="kyc" class="bg-black p-6 rounded-lg shadow-md">
+        <h2 class="text-2xl font-semibold mb-4">KYC</h2>
+        <p class="mb-4">Streamline and secure your Know Your Customer processes with AI-driven verification.</p>
+        <ul class="list-disc list-inside">
+            <li>Identity verification</li>
+            <li>Anti-money laundering (AML) compliance</li>
+            <li>Fraud risk assessment</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
+
+{% block footer_content %}
+    <div>
+        <h3 class="text-xl font-semibold mb-4">Solutions</h3>
+        <ul class="space-y-2">
+            <li><a href="{{ url_for('main.solutions') }}#kyc-security" class="hover:text-gray-300">KYC Security</a></li>
+            <li><a href="{{ url_for('main.solutions') }}#media-verification" class="hover:text-gray-300">Media Verification</a></li>
+            <li><a href="{{ url_for('main.solutions') }}#threat-intelligence" class="hover:text-gray-300">Threat Intelligence</a></li>
+        </ul>
+    </div>
+    <div>
+        <h3 class="text-xl font-semibold mb-4">Use Cases</h3>
+        <ul class="space-y-2">
+            <li><a href="#defence" class="hover:text-gray-300">Defence</a></li>
+            <li><a href="#law-enforcement" class="hover:text-gray-300">Law Enforcement</a></li>
+            <li><a href="#kyc" class="hover:text-gray-300">KYC</a></li>
+            <li><a href="#cybersecurity" class="hover:text-gray-300">Cybersecurity</a></li>
+        </ul>
+    </div>
+    <div>
+        <h3 class="text-xl font-semibold mb-4">Resources</h3>
+        <ul class="space-y-2">
+            <li><a href="{{ url_for('main.resources') }}#blog" class="hover:text-gray-300">Blog</a></li>
+            <li><a href="{{ url_for('main.resources') }}#reports" class="hover:text-gray-300">Reports</a></li>
+            <li><a href="{{ url_for('main.resources') }}#video" class="hover:text-gray-300">Video</a></li>
+            <li><a href="{{ url_for('main.resources') }}#news" class="hover:text-gray-300">News & Press</a></li>
+        </ul>
+    </div>
+    <div>
+        <h3 class="text-xl font-semibold mb-4">Company</h3>
+        <ul class="space-y-2">
+            <li><a href="{{ url_for('main.technology') }}" class="hover:text-gray-300">Technology</a></li>
+            <li><a href="#" class="hover:text-gray-300">Careers</a></li>
+            <li><a href="{{ url_for('main.contact') }}" class="hover:text-gray-300">Contact</a></li>
+        </ul>
+    </div>
+{% endblock %}

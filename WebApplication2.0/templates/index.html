@@ -1,0 +1,326 @@
+{% extends "base.html" %}
+
+{% block title %}Deep Tracers - Home{% endblock %}
+
+{% block content %}
+<div class="centered-video-container">
+    <video autoplay muted loop>
+        <source src="{{ url_for('static', filename='img/facia-banner-video.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="relative z-10 text-center py-20">
+        <h1 class="text-7xl font-bold mb-7">Next-Gen AI Threat Detection</h1>
+        <p class="text-xl mb-10">Protect your digital assets with cutting-edge AI technology</p>
+        <a href="{{ url_for('main.contact') }}" class="btn-primary px-6 py-3 rounded-lg text-lg">Get Started</a>
+    </div>
+</div>
+
+<div class="clients-section text-center py-20">
+    <h2 class="text-4xl font-bold mb-10"> Territorial Army  |  Cyber Peace</h2>
+    <div class="flex justify-center space-x-10">
+        <img src="{{ url_for('static', filename='img/terri.jpeg') }}" alt="Client 2" class="client-image">
+        <img src="{{ url_for('static', filename='img/cyber_peace.jpeg') }}" alt="Client 1" class="client-image">
+
+    </div>
+</div> 
+
+
+<section class="mt-16">
+    <h2 class="text-3xl font-semibold mb-6">Our Capabilities</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-black p-6 rounded-lg shadow-md">
+            <i class="fas fa-shield-alt text-4xl text-primary mb-4"></i>
+            <h3 class="text-xl font-semibold mb-2">Advanced Threat Detection</h3>
+            <p>Utilize state-of-the-art AI algorithms to identify and mitigate potential threats in real-time.</p>
+        </div>
+        <div class="bg-black p-6 rounded-lg shadow-md">
+            <i class="fas fa-chart-line text-4xl text-primary mb-4"></i>
+            <h3 class="text-xl font-semibold mb-2">Scalable Solutions</h3>
+            <p>Our platform grows with your needs, ensuring protection for businesses of all sizes.</p>
+        </div>
+        <div class="bg-black p-6 rounded-lg shadow-md">
+            <i class="fas fa-brain text-4xl text-primary mb-4"></i>
+            <h3 class="text-xl font-semibold mb-2">Continuous Learning</h3>
+            <p>Our AI models continuously adapt to new threats, providing up-to-date protection.</p>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="mt-16 bg-black p-8 rounded-lg">
+    <h2 class="text-3xl font-semibold mb-6 text-center">Identifying Political Deepfakes in Social Media using AI</h2>
+    <div class="max-w-3xl mx-auto">
+        <h3 class="text-2xl font-semibold mb-4">Try our deepfake detector</h3>
+        <div class="flex items-center space-x-2">
+            <div class="flex-grow flex items-center space-x-2">
+                <input type="text" id="deepfake-url" placeholder="Search Deepfakes ... " class="flex-grow p-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-green-500">
+                <label for="file-upload" class="cursor-pointer bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-300">
+                    <i class="fas fa-upload mr-2"></i>Upload
+                </label>
+                <input id="file-upload" type="file" accept="image/*,video/*" class="hidden">
+            </div>
+            <button id="detect-deepfake" class="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition duration-300">
+                <i class="fas fa-search mr-2"></i>Analyze
+            </button>
+        </div>
+        <div id="file-name" class="mt-2 text-sm text-gray-600"></div>
+        <div id="result" class="mt-4 text-center font-bold"></div>
+    </div>
+</section>
+
+    <div class="video1-container">
+        <video autoplay muted loop>
+            <source src="{{ url_for('static', filename='img/connect to data.mp4') }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+
+<section class="mt-16 bg-black text-white py-12">
+    <div class="container mx-auto px-200">
+        <h2 class="text-3xl font-semibold mb-8 text-center">Schedule a demo with our team today!</h2>
+        <div class="flex justify-center"> 
+            <a href="{{ url_for('main.contact') }}" class="book-demo-button py-3 px-10 rounded-lg text-lg font-semibold text-center hover:bg-gray-20 transition duration-300">Book a demo</a>
+        </div>
+    </div>
+</section>
+<section class="mt-16 py-12 bg-black text-white">
+    <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
+        <div class="md:w-1/2 mb-8 md:mb-0">
+            <h2 class="text-4xl font-semibold mb-10">Deepfake Detection</h2> 
+            <p class="mb-6 text-xl leading-relaxed"> 
+                Protect your enterprise from the effects of misinformation and media manipulation with our AI-powered deepfake detection technology.
+            </p>
+            <ul class="list-disc list-inside text-xl mb-8 leading-loose">
+                <li>Industry-Leading Accuracy</li>
+                <li>Cross-Platform Customizable Integration</li>
+                <li>AI Image Detection</li>
+                <li>Deepfake Video Detection</li>
+            </ul>
+            <a href="#" class="bg-blue-500 text-white py-3 px-6 rounded-lg hover:bg-blue-600 transition duration-300">Find Out More</a> <!-- Increased padding for the button -->
+        </div>
+        
+
+        <div class="styled-video-container">
+            <video width="100%" height="100%" loop muted autoplay>
+                <source src="{{ url_for('static', filename='img/deepfake-detection.webm') }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+                   
+    </div>
+</section>
+
+
+<section class="features-section py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-semibold mb-8 text-center text-white">DeepTracers Experience</h2>
+        <div class="grid md:grid-cols-3 gap-8 text-center">
+            <div class="feature-box bg-black p-8 rounded-lg shadow-lg">
+                <div class="icon mb-4">
+                    <img src="{{ url_for('static', filename='img/intergration.jpg') }}" alt="Integration" class="mx-auto w-16 h-16">
+                </div>
+                <h3 class="text-xl font-semibold mb-2 text-white">Integration</h3>
+                <p class="text-gray-400">We offer detailed documentation for integrating our solutions without any hassle.</p>
+            </div>
+
+            <div class="feature-box bg-black p-8 rounded-lg shadow-lg">
+                <div class="icon mb-4">
+                    <img src="{{ url_for('static', filename='img/Customisability.webp') }}" alt="Customisability" class="mx-auto w-16 h-16">
+                </div>
+                <h3 class="text-xl font-semibold mb-2 text-white">Customisability</h3>
+                <p class="text-gray-400">We empower organisations with custom verification & authentication solutions.</p>
+            </div>
+
+            <div class="feature-box bg-black p-8 rounded-lg shadow-lg">
+                <div class="icon mb-4">
+                    <img src="{{ url_for('static', filename='img/Reliabilio.jpg') }}" alt="Reliability" class="mx-auto w-16 h-16">
+                </div>
+                <h3 class="text-xl font-semibold mb-2 text-white">Reliability</h3>
+                <p class="text-gray-400">We offer multi-region server availability, ensuring high availability and zero percent downtime.</p>
+            </div>
+
+            <div class="feature-box bg-black p-8 rounded-lg shadow-lg">
+                <div class="icon mb-4">
+                    <img src="{{ url_for('static', filename='img/User-driven.jpg') }}" alt="User-driven" class="mx-auto w-16 h-16">
+                </div>
+                <h3 class="text-xl font-semibold mb-2 text-white">User-driven</h3>
+                <p class="text-gray-400">We follow a user-driven design philosophy, optimizing user experience.</p>
+            </div>
+
+            <div class="feature-box bg-black p-8 rounded-lg shadow-lg">
+                <div class="icon mb-4">
+                    <img src="{{ url_for('static', filename='img/Support.jpg') }}" alt="Support" class="mx-auto w-16 h-16">
+                </div>
+                <h3 class="text-xl font-semibold mb-2 text-white">Support</h3>
+                <p class="text-gray-400">We offer 24/7 support via email, phone, and live chat.</p>
+            </div>
+
+            <div class="feature-box bg-black p-8 rounded-lg shadow-lg">
+                <div class="icon mb-4">
+                    <img src="{{ url_for('static', filename='img/Privacy.jpg') }}" alt="Privacy" class="mx-auto w-16 h-16">
+                </div>
+                <h3 class="text-xl font-semibold mb-2 text-white">Privacy</h3>
+                <p class="text-gray-400">We are compliant with GDPR regulations and offer on-premise solutions.</p>
+            </div>
+
+            <div class="feature-box bg-black p-8 rounded-lg shadow-lg">
+                <div class="icon mb-4">
+                    <img src="{{ url_for('static', filename='img/Innovation.jpg') }}" alt="Innovation" class="mx-auto w-16 h-16">
+                </div>
+                <h3 class="text-xl font-semibold mb-2 text-white">Innovation</h3>
+                <p class="text-gray-400">Our cutting-edge technology continuously evolves to stay ahead of emerging threats in deepfake detection.</p>
+            </div>
+
+            <div class="feature-box bg-black p-8 rounded-lg shadow-lg">
+                <div class="icon mb-4">
+                    <img src="{{ url_for('static', filename='img/collabration.jpg') }}" alt="Collaboration" class="mx-auto w-16 h-16">
+                </div>
+                <h3 class="text-xl font-semibold mb-2 text-white">Collaboration</h3>
+                <p class="text-gray-400">We foster partnerships with industry leaders to deliver comprehensive deepfake detection solutions.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="mt-16 bg-black py-12">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-semibold mb-8 text-center">What Our Customers Say About Us?</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-black p-6 rounded-lg shadow-md">
+                <div class="flex items-center mb-4">
+                    <img src="{{ url_for('static', filename='img/images.jpeg') }}" alt="Customer 1" class="w-12 h-12 rounded-full mr-4">
+                    <div>
+                        <h3 class="font-semibold">O. Roberts</h3>
+                        <p class="text-gray-600">Business Owner</p>
+                    </div>
+                </div>
+                <p class="text-gray-700">"Great product! It was what I needed for my company. It's really a great tool."</p>
+            </div>
+            <div class="bg-black p-6 rounded-lg shadow-md">
+                <div class="flex items-center mb-4">
+                    <img src="{{ url_for('static', filename='img/100k-ai-faces-3.jpg') }}" alt="Customer 2" class="w-12 h-12 rounded-full mr-4">
+                    <div>
+                        <h3 class="font-semibold">E. Thompson</h3>
+                        <p class="text-gray-600">Content Creator</p>
+                    </div>
+                </div>
+                <p class="text-gray-700">"I don't need it at the moment, but now that I know it works and how helpful it is, I will definitely use it!"</p>
+            </div>
+            <div class="bg-black p-6 rounded-lg shadow-md">
+                <div class="flex items-center mb-4">
+                    <img src="{{ url_for('static', filename='img/ai-faces-01.avif') }}" alt="Customer 3" class="w-12 h-12 rounded-full mr-4">
+                    <div>
+                        <h3 class="font-semibold">E. Watsica</h3>
+                        <p class="text-gray-600">Student</p>
+                    </div>
+                </div>
+                <p class="text-gray-700">"The quick and easy use of my key words to generate an essay. Standout feature. It adapts to various writing styles and tones, making it suitable for a wide range of projects. User-friendly interface, speed, and adaptability. Great! Keep going!"</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block footer_content %}
+    <div>
+        <h3 class="text-xl font-semibold mb-4">Solutions</h3>
+        <ul class="space-y-2">
+            <li><a href="{{ url_for('main.solutions') }}#kyc-security" class="hover:text-gray-300">KYC Security</a></li>
+            <li><a href="{{ url_for('main.solutions') }}#media-verification" class="hover:text-gray-300">Media Verification</a></li>
+            <li><a href="{{ url_for('main.solutions') }}#threat-intelligence" class="hover:text-gray-300">Threat Intelligence</a></li>
+        </ul>
+    </div>
+    <div>
+        <h3 class="text-xl font-semibold mb-4">Use Cases</h3>
+        <ul class="space-y-2">
+            <li><a href="{{ url_for('main.use_cases') }}#defence" class="hover:text-gray-300">Defence</a></li>
+            <li><a href="{{ url_for('main.use_cases') }}#law-enforcement" class="hover:text-gray-300">Law Enforcement</a></li>
+            <li><a href="{{ url_for('main.use_cases') }}#kyc" class="hover:text-gray-300">KYC</a></li>
+            <li><a href="{{ url_for('main.use_cases') }}#cybersecurity" class="hover:text-gray-300">Cybersecurity</a></li>
+        </ul>
+    </div>
+    <div>
+        <h3 class="text-xl font-semibold mb-4">Resources</h3>
+        <ul class="space-y-2">
+            <li><a href="{{ url_for('main.resources') }}#blog" class="hover:text-gray-300">Blog</a></li>
+            <li><a href="{{ url_for('main.resources') }}#reports" class="hover:text-gray-300">Reports</a></li>
+            <li><a href="{{ url_for('main.resources') }}#video" class="hover:text-gray-300">Video</a></li>
+            <li><a href="{{ url_for('main.resources') }}#news" class="hover:text-gray-300">News & Press</a></li>
+        </ul>
+    </div>
+    <div>
+        <h3 class="text-xl font-semibold mb-4">Company</h3>
+        <ul class="space-y-2">
+            <li><a href="{{ url_for('main.technology') }}" class="hover:text-gray-300">Technology</a></li>
+            <li><a href="#" class="hover:text-gray-300">Careers</a></li>
+            <li><a href="{{ url_for('main.contact') }}" class="hover:text-gray-300">Contact</a></li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const detectButton = document.getElementById('detect-deepfake');
+    const urlInput = document.getElementById('deepfake-url');
+    const resultDiv = document.getElementById('result');
+    const fileUpload = document.getElementById('file-upload');
+    const fileName = document.getElementById('file-name');
+    let uploadedFile = null;
+
+    fileUpload.addEventListener('change', function(e) {
+        uploadedFile = e.target.files[0];
+        fileName.textContent = uploadedFile ? `Selected file: ${uploadedFile.name}` : '';
+    });
+
+    detectButton.addEventListener('click', function() {
+        const url = urlInput.value.trim();
+        
+        if (!url && !uploadedFile) {
+            alert('Please enter a URL or upload a file');
+            return;
+        }
+
+        resultDiv.textContent = 'Analyzing...';
+        detectButton.disabled = true;
+
+        const formData = new FormData();
+        if (url) {
+            formData.append('url', url);
+        }
+        if (uploadedFile) {
+            formData.append('file', uploadedFile);
+        }
+
+        fetch('/detect_deepfake', {
+            method: 'POST',
+            body: formData,
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.is_deepfake) {
+                resultDiv.textContent = `This content is likely a deepfake (${(data.confidence * 100).toFixed(2)}% confidence)`;
+                resultDiv.className = 'mt-4 text-center font-bold text-red-600';
+            } else {
+                resultDiv.textContent = `This content is likely authentic (${(data.confidence * 100).toFixed(2)}% confidence)`;
+                resultDiv.className = 'mt-4 text-center font-bold text-green-600';
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            resultDiv.textContent = 'An error occurred while analyzing the content.';
+            resultDiv.className = 'mt-4 text-center font-bold text-red-600';
+        })
+        .finally(() => {
+            detectButton.disabled = false;
+            uploadedFile = null;
+            fileUpload.value = '';
+            fileName.textContent = '';
+        });
+    });
+});
+</script>
+{% endblock %}
