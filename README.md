@@ -99,8 +99,8 @@ Follow the steps below to install and run **DeepTracersV0**:
 
 ### **1. Clone the repository**
 ```bash
-git clone https://github.com/jvishwa06/DeepTracers.git
-cd DeepTracers
+git clone https://github.com/jvishwa06/DeepTracersV0.git
+cd DeepTracersV0
 ```
 
 ### **2. Create and activate a virtual environment**
