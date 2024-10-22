@@ -150,9 +150,7 @@ To run the backend services, you need to download the pretrained model from Goog
 #### **Backend (Flask Application)**
 Start the necessary backend services:
 ```bash
-python Backend/DeepfakeBackend.py
-python Backend/DatabaseBackend.py
-python Backend/ChatbotBackend.py
+python runbackends.py
 ```
 
 ### **5. Testing Media Integration**
