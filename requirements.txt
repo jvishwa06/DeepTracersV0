@@ -117,7 +117,7 @@ ollama==0.3.3
 omegaconf==2.2.2
 onnx==1.17.0
 onnx2pytorch==0.5.0
-opencv-python==4.5.5.64
+opencv-python==4.11.0.86
 opencv-python-headless==4.10.0.84
 opt_einsum==3.4.0
 optree==0.12.1
@@ -213,9 +213,8 @@ tokenizers==0.20.0
 toml==0.10.2
 tomlkit==0.12.0
 toolz==0.12.1
-torch==2.4.1
-torchaudio==2.4.1
-torchvision==0.19.1
+torch==2.2.2
+torchvision==0.17.2
 tornado==6.4.1
 tqdm==4.66.5
 transformers==4.45.1
