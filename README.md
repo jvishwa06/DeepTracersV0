@@ -78,8 +78,8 @@ In addition to publicly available datasets, the model was enhanced with scraped 
 ## **Model Details**
 
 - **Federated Learning**: To handle computational complexity, separate models were trained for each dataset and combined through federated learning to create a unified model.
-- **Accuracy**: The model achieved an impressive **98.64%** accuracy on Visual Model & **99.16** on Audio Model
-- **Inference Speed**: With **Post-Training Full Integer Quantization**, the model achieves inference speeds of **150ms-200ms** on Nvidia RTX4090, ensuring fast and efficient real-time predictions.
+- **Accuracy**: The model achieved an impressive **98.64%** accuracy on Visual Model & **96.16** on Audio Model
+- **Inference Speed**: With **Post-Training Full Integer Quantization**, the model achieves inference speeds of **15ms-20ms** on Nvidia RTX4090, ensuring fast and efficient real-time predictions.
 
 ---
 
